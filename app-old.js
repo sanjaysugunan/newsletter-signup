@@ -1,10 +1,11 @@
 const express= require("express");
 const bodyParser= require("body-parser");
 const request = require("request");
+const dotenv = require("dotenv");
 const app = express();
 const https = require("https");
 
-
+dotenv.config();
 app.use(bodyParser.urlencoded({extended: true}));
 
  app.use(express.static(__dirname));//for css to work
@@ -38,7 +39,7 @@ app.post("/", function(req,res){
 
    const options ={
     method: "POST",
-    auth: "s4njy: 7be886d853c8da83b45c93a361a1b2f8-us21"
+    auth: "s4njy: PROCESS.ENV.API_KEY"
    }
 
    const request = https.request(url, options, function(response){
@@ -55,10 +56,7 @@ app.listen(3000, function(){
 })
 
 
-//api key:7be886d853c8da83b45c93a361a1b2f8-us21
-// unique id :9539953ba8
-//YOUR_SERVER_PREFIX: us21
-//https://us21.api.mailchimp.com/3.0/lists/9539953ba8
+
 /*app.get("/style.css" , function(req, res) {
 
     res.sendFile ( __dirname + "/\style.css");
