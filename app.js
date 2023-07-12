@@ -1,13 +1,15 @@
 const express= require("express");
 const bodyParser= require("body-parser");
 const request = require("request");
+const dotenv = require("dotenv");
 const app = express();
 const https = require("https");
 const client = require("@mailchimp/mailchimp_marketing");
 
+dotenv.config();
 client.setConfig({
-  apiKey: "7be886d853c8da83b45c93a361a1b2f8-us21",
-  server: "us21",
+  apiKey: PROCESS.ENV.API_KEY,
+  server: PROCESS.ENV.API_SERVER_PREFIX,
 });
 
 
@@ -54,10 +56,6 @@ app.listen(3000, function(){
 })
 
 
-//api key:7be886d853c8da83b45c93a361a1b2f8-us21
-// unique id :9539953ba8
-//YOUR_SERVER_PREFIX: us21
-//https://us21.api.mailchimp.com/3.0/lists/9539953ba8
 /*app.get("/style.css" , function(req, res) {
 
     res.sendFile ( __dirname + "/\style.css");
