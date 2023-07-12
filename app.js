@@ -8,8 +8,8 @@ const client = require("@mailchimp/mailchimp_marketing");
 
 dotenv.config();
 client.setConfig({
-  apiKey: PROCESS.ENV.API_KEY,
-  server: PROCESS.ENV.API_SERVER_PREFIX,
+  apiKey: process.env.API_KEY,
+  server: process.env.API_SERVER_PREFIX,
 });
 
 
