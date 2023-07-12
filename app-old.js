@@ -39,7 +39,7 @@ app.post("/", function(req,res){
 
    const options ={
     method: "POST",
-    auth: "s4njy: PROCESS.ENV.API_KEY"
+    auth: "s4njy: process.env.API_KEY"
    }
 
    const request = https.request(url, options, function(response){
